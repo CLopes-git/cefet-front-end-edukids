@@ -9,26 +9,34 @@
   transition: transform 200ms ease-out;
 }
 
-/*
- * Exercício 2: Você deve implementar uma metáfora visual para cada um dos 4
- * estados dos animais. Algumas *sugestões*:
- *   - com-fome: animal piscando (opacidade variando)
- *   - satisfeito: uma borda verde no animal e o animal fica girando de alegria
- *   - com-raiva: animal fica pulsando
- *   - atacando: animal dá um salto e cresce, com uma borda vermelha
- */
-.com-fome {
+@keyframes piscando {
+  from { opacity: 1.0; }
+  to   { opacity: 0.6; }
+}
 
+@keyframes pulsando {
+  from { height: 250px; width: 250px; }
+  to   { height: 350px; width: 350px; }
+}
+
+.com-fome {
+  position: relative;
+  animation: piscando 500ms ease-out infinite alternate;
 }
 
 .satisfeito {
-
+  border-color: green;
+  transform: rotate(360deg);
+  transition: transform 1s ease-out;
 }
 
 .com-raiva {
-
+  position: relative;
+  animation: pulsando 200ms ease-out infinite alternate;
 }
 
 .atacando {
-
+  border-color: red;
+  transform: translateY(-50px) scale(1.5, 1.5);
+  transition: transform 200ms ease-out;
 }
